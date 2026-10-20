@@ -154,26 +154,14 @@
     gap: 25px;
   }
   .logo {
-    font-family: var(--display);
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: -0.07em;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    white-space: nowrap;
+    flex-shrink: 0;
   }
-  .logo-mark {
-    width: 37px;
-    height: 37px;
-    border: 2px solid var(--clay);
-    display: grid;
-    place-items: center;
-    border-radius: 10px;
-    color: var(--clay);
-    font-family: var(--mono);
-    font-size: 14px;
-    letter-spacing: -0.08em;
+  .brand-image {
+    display: block;
+    width: 216px;
+    height: auto;
   }
   .nav-links {
     display: flex;
@@ -749,11 +737,10 @@
     padding-bottom: 48px;
   }
   .footer .logo {
-    color: var(--paper);
-  }
-  .footer .logo-mark {
-    color: var(--butter);
-    border-color: var(--butter);
+    width: fit-content;
+    background: var(--paper);
+    border-radius: 8px;
+    padding: 6px 10px;
   }
   .footer h4 {
     font: 11px var(--mono);
@@ -1164,24 +1151,10 @@
   [hidden] {
     display: none !important;
   }
-  .brand-name {
-    display: grid;
-    gap: 3px;
-    font-size: 1.25rem;
-    line-height: 1;
-    letter-spacing: -0.045em;
-  }
-  .brand-subtitle {
-    font: 600 0.62rem var(--mono);
-    letter-spacing: 0.19em;
-    text-transform: uppercase;
-    color: var(--clay);
-  }
-  .footer .brand-subtitle {
-    color: var(--butter);
-  }
-  .logo-mark {
-    flex-shrink: 0;
+  @media (max-width: 820px) {
+    .brand-image {
+      width: 180px;
+    }
   }
   .skip-link {
     position: fixed;

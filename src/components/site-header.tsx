@@ -4,17 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-
-export function Brand() {
-  return (
-    <>
-      <span className="logo-mark">{"{/}"}</span>
-      <span className="brand-name">
-        Bitstack<span className="brand-subtitle">Solutions</span>
-      </span>
-    </>
-  );
-}
+import { Brand } from "./brand";
 
 const navigation = [
   ["Services", "/services"],
@@ -61,7 +51,7 @@ export function SiteHeader() {
           aria-label="Bitstack Solutions home"
           onClick={() => setOpen(false)}
         >
-          <Brand />
+          <Brand priority />
         </Link>
         <nav
           className={`nav-links ${open ? "open" : ""}`}
