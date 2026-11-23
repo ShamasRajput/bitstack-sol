@@ -1,201 +1,133 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { Reveal } from "@/components/animations";
+import { PageSchema } from "@/components/structured-data";
+import { CallToAction } from "@/components/editorial";
+import { pageMetadata } from "@/lib/seo";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Get to know the engineering approach behind Bitstack Solutions: clarity, craftsmanship, and practical technology.",
-  openGraph: {
-    title: "About | Bitstack Solutions",
-    description:
-      "Get to know the engineering approach behind Bitstack Solutions: clarity, craftsmanship, and practical technology.",
-  },
-};
+const description =
+  "Meet Shamas Rajput, the person behind Bitstack Solutions. Learn what the business builds, how projects are scoped, and how to get in touch.";
+export const metadata = pageMetadata(
+  "About Shamas Rajput and Bitstack Solutions",
+  description,
+  "/about",
+);
 
-export default function Page() {
+export default function AboutPage() {
   return (
     <>
+      <PageSchema
+        title="About Bitstack Solutions"
+        description={description}
+        path="/about"
+        type="AboutPage"
+      />
       <section className="page-hero">
         <div className="site-container">
-          <span className="eyebrow">{"// about our approach"}</span>
-          <h1>
-            {"Engineers in mindset."}
-            <br />
-            <span className="highlight">{"Human by design."}</span>
-          </h1>
+          <span className="eyebrow">// about Bitstack Solutions</span>
+          <h1>Meet Shamas Rajput.</h1>
           <p className="lead">
-            {
-              "We believe technology should feel easier to use, easier to understand, and easier to manage when the project is done."
-            }
+            I’m the person behind Bitstack Solutions and your contact for
+            website, automation, and API integration projects.
           </p>
-        </div>
-      </section>
-      <section>
-        <div className="site-container max-w-[850px]">
-          <div>
-            <span className="eyebrow">{"// a note from the workspace"}</span>
-            <p className="about-quote" style={{ marginTop: "25px" }}>
-              {
-                "“The best technology quietly gets out of the way and lets people do their best work.”"
-              }
-            </p>
-            <p className="small-muted" style={{ marginTop: "25px" }}>
-              {"A guiding design philosophy, not a client testimonial."}
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="dark">
-        <div className="site-container">
-          <span className="eyebrow">{"// what matters here"}</span>
-          <h2
-            style={{
-              marginTop: "20px",
-              marginRight: "0px",
-              marginBottom: "48px",
-              marginLeft: "0px",
-            }}
+          <a
+            href={`mailto:${site.email}`}
+            className="inline-link mt-6 inline-block"
           >
-            {"How we think about the work."}
-          </h2>
-          <div className="feature-boxes">
-            <div
-              className="feature-box"
-              style={{
-                backgroundImage: "initial",
-                backgroundPositionX: "initial",
-                backgroundPositionY: "initial",
-                backgroundSize: "initial",
-                backgroundRepeat: "initial",
-                backgroundAttachment: "initial",
-                backgroundOrigin: "initial",
-                backgroundClip: "initial",
-                backgroundColor: "rgb(56, 38, 32)",
-                borderTopColor: "rgb(111, 84, 73)",
-                borderRightColor: "rgb(111, 84, 73)",
-                borderBottomColor: "rgb(111, 84, 73)",
-                borderLeftColor: "rgb(111, 84, 73)",
-                color: "white",
-              }}
-            >
-              <span className="mono" style={{ color: "var(--butter)" }}>
-                {"01 / SIMPLICITY"}
-              </span>
-              <h3>{"Clarity first."}</h3>
-              <p style={{ color: "rgb(207, 189, 177)" }}>
-                {
-                  "Explain the idea in language that makes sense to everyone in the room."
-                }
-              </p>
-            </div>
-            <div
-              className="feature-box"
-              style={{
-                backgroundImage: "initial",
-                backgroundPositionX: "initial",
-                backgroundPositionY: "initial",
-                backgroundSize: "initial",
-                backgroundRepeat: "initial",
-                backgroundAttachment: "initial",
-                backgroundOrigin: "initial",
-                backgroundClip: "initial",
-                backgroundColor: "rgb(56, 38, 32)",
-                borderTopColor: "rgb(111, 84, 73)",
-                borderRightColor: "rgb(111, 84, 73)",
-                borderBottomColor: "rgb(111, 84, 73)",
-                borderLeftColor: "rgb(111, 84, 73)",
-                color: "white",
-              }}
-            >
-              <span className="mono" style={{ color: "var(--butter)" }}>
-                {"02 / ENGINEERING"}
-              </span>
-              <h3>{"Build to last."}</h3>
-              <p style={{ color: "rgb(207, 189, 177)" }}>
-                {
-                  "Think beyond launch day: quality, maintainability, and everyday use."
-                }
-              </p>
-            </div>
-            <div
-              className="feature-box"
-              style={{
-                backgroundImage: "initial",
-                backgroundPositionX: "initial",
-                backgroundPositionY: "initial",
-                backgroundSize: "initial",
-                backgroundRepeat: "initial",
-                backgroundAttachment: "initial",
-                backgroundOrigin: "initial",
-                backgroundClip: "initial",
-                backgroundColor: "rgb(56, 38, 32)",
-                borderTopColor: "rgb(111, 84, 73)",
-                borderRightColor: "rgb(111, 84, 73)",
-                borderBottomColor: "rgb(111, 84, 73)",
-                borderLeftColor: "rgb(111, 84, 73)",
-                color: "white",
-              }}
-            >
-              <span className="mono" style={{ color: "var(--butter)" }}>
-                {"03 / PARTNERSHIP"}
-              </span>
-              <h3>{"Work together."}</h3>
-              <p style={{ color: "rgb(207, 189, 177)" }}>
-                {
-                  "Listen first. Communicate clearly. Create with business realities in mind."
-                }
-              </p>
-            </div>
-          </div>
+            {site.email} ↗
+          </a>
         </div>
       </section>
-      <section>
+      <section id="shamas-rajput">
         <div className="site-container editorial-grid">
           <div>
-            <span className="eyebrow">{"// not another agency promise"}</span>
-            <h2
-              style={{
-                marginTop: "21px",
-                marginRight: "0px",
-                marginBottom: "21px",
-                marginLeft: "0px",
-              }}
-            >
-              {"The right tool."}
-              <br />
-              {"For the right reason."}
-            </h2>
+            <span className="eyebrow">// the work</span>
+            <h2>Websites and the processes behind them.</h2>
           </div>
-          <div>
-            <p className="lead">
-              {
-                "Not every process needs AI. Not every business needs a custom app. We start with the actual problem and recommend technology only when it makes sense."
-              }
+          <div className="prose-copy">
+            <p>
+              Bitstack Solutions focuses on three connected services: building
+              business websites and web applications, automating repeatable
+              workflows, and connecting tools through APIs. A project might be a
+              new service website, an intake form that feeds another system, or
+              a workflow that removes repeated data entry.
             </p>
-            <p className="small-muted" style={{ marginTop: "20px" }}>
-              {
-                "At Bitstack Solutions, we bring websites, workflows, and business tools together with a clear plan and a thoughtful handoff."
-              }
+            <p>
+              We begin with the task and its constraints. Who uses the result?
+              Where does the information live? What happens when a request
+              fails? Those answers shape the scope before choosing tools.
+            </p>
+            <p>
+              You can inspect a current example in the{" "}
+              <Link href="/work/bitstack-website" className="inline-link">
+                case study for this website
+              </Link>
+              . It explains the implementation and its limitations, rather than
+              presenting sample designs as client results.
             </p>
           </div>
         </div>
       </section>
-      <section className="cta-band">
-        <div className="site-container cta-wrap">
-          <span className="eyebrow">{"// ready when you are"}</span>
-          <h2>{"Your next chapter, engineered."}</h2>
+      <section className="bg-cream">
+        <div className="site-container">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">// working together</span>
+              <h2>What to establish before a project starts.</h2>
+            </div>
+          </div>
+          <div className="feature-boxes">
+            <div className="feature-box">
+              <span className="mono">01 / SCOPE</span>
+              <h3>A written list of deliverables.</h3>
+              <p>
+                Pages, workflows, integrations, content responsibilities, and
+                work that is outside the estimate.
+              </p>
+            </div>
+            <div className="feature-box">
+              <span className="mono">02 / ACCEPTANCE</span>
+              <h3>Checks tied to actual use.</h3>
+              <p>
+                Examples of a successful result, plus the error cases and device
+                sizes that need to work.
+              </p>
+            </div>
+            <div className="feature-box">
+              <span className="mono">03 / OWNERSHIP</span>
+              <h3>A clear operating plan.</h3>
+              <p>
+                Who owns the accounts and code, what hosting or services cost,
+                and who maintains the result.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="site-container prose-copy">
+          <span className="eyebrow">// get in touch</span>
+          <h2>Bring the problem, not a technical specification.</h2>
           <p>
-            {
-              "Tell us what you’re building. We’ll figure out the right technical approach together."
-            }
+            Email Shamas Rajput at{" "}
+            <a href={`mailto:${site.email}`} className="inline-link">
+              {site.email}
+            </a>
+            . Include your current website or tools, what you want to change,
+            and any deadline you need to work around.
           </p>
-          <Link href="/contact" className="button yellow">
-            {"Tell us about your project "}
-            <span className="arr">{"↗"}</span>
-          </Link>
+          <p>
+            If you are preparing a brief, the{" "}
+            <Link
+              href="/resources/website-project-brief"
+              className="inline-link"
+            >
+              website planning checklist
+            </Link>{" "}
+            can help you gather the details.
+          </p>
         </div>
       </section>
+      <CallToAction />
     </>
   );
 }

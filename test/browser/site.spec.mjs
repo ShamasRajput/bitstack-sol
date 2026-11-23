@@ -5,7 +5,7 @@ test('pages render without errors or horizontal overflow on desktop and mobile',
   page.on('pageerror', error => errors.push(error.message));
   for (const width of [1440, 900, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 900 });
-    for (const route of ['/', '/services', '/automation', '/web-development', '/integrations', '/work', '/about', '/contact']) {
+    for (const route of ['/', '/services', '/automation', '/web-development', '/integrations', '/work', '/work/bitstack-website', '/about', '/contact', '/resources', '/resources/website-project-brief', '/resources/reliable-lead-intake']) {
       await page.goto(route);
       await expect(page).toHaveTitle(/Bitstack Solutions/);
       await expect(page.locator('h1')).toBeVisible();
@@ -108,7 +108,7 @@ test('Lenis and motion run with normal motion preferences', async ({ browser }) 
     await expect(page.locator('.service-card').first()).toHaveCSS('opacity', '1');
     await page.getByRole('navigation').getByRole('link', { name: 'About', exact: true }).click();
     await expect(page).toHaveURL(/\/about$/);
-    await expect(page.locator('h1')).toContainText('Human by design.');
+    await expect(page.locator('h1')).toContainText('Meet Shamas Rajput.');
     expect(errors).toEqual([]);
   } finally { await context.close(); }
 });

@@ -1,16 +1,26 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+import { PageSchema } from "@/components/structured-data";
+import { site } from "@/lib/site";
 import { ProjectForm } from "@/components/project-form";
 import { Reveal } from "@/components/animations";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Start your project with Bitstack Solutions. Share your goals through our guided project brief.",
-};
+const description =
+  "Contact Shamas Rajput at Bitstack Solutions by email or a guided project brief about website development, automation, or API integration.";
+export const metadata = pageMetadata(
+  "Contact Shamas Rajput",
+  description,
+  "/contact",
+);
 
 export default function ContactPage() {
   return (
     <>
+      <PageSchema
+        title="Contact Bitstack Solutions"
+        description={description}
+        path="/contact"
+        type="ContactPage"
+      />
       <section className="page-hero">
         <div className="site-container">
           <span className="eyebrow">// start a project</span>
@@ -29,13 +39,14 @@ export default function ContactPage() {
         <div className="site-container contact-layout">
           <Reveal>
             <span className="eyebrow">// project intake</span>
-            <h2 className="my-[22px] text-[3.1rem]">
-              Let’s work it out together.
-            </h2>
+            <h2 className="my-[22px] text-[3.1rem]">Talk to Shamas Rajput.</h2>
             <p className="lead">
-              A guided brief to help us understand your business, your goals,
-              and where you need a hand.
+              Email me directly, or use the brief to describe your current
+              website, tools, and the task you want to change.
             </p>
+            <a href={`mailto:${site.email}`} className="contact-email">
+              {site.email}
+            </a>
             <div className="page-aside mt-[37px]">
               01 &nbsp; Tell us the challenge
               <br />
@@ -49,8 +60,9 @@ export default function ContactPage() {
               04 &nbsp; Leave your details
             </div>
             <p className="small-muted mt-5">
-              Share a few details to create your project brief. You can keep a
-              copy after submitting.
+              Email is a separate contact option if you prefer not to use the
+              form. Avoid sending passwords, API keys, or sensitive customer
+              records.
             </p>
           </Reveal>
           <ProjectForm />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Brand } from "./brand";
+import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -16,9 +17,12 @@ export function SiteFooter() {
                 <Brand />
               </Link>
               <p>
-                Thoughtful websites, connected systems, and smarter workflows.
-                The technical side of your business, handled.
+                Website development, workflow automation, and API integrations.
+                Project contact: Shamas Rajput.
               </p>
+              <a className="footer-email" href={`mailto:${site.email}`}>
+                {site.email}
+              </a>
             </div>
             <div>
               <h4>// navigate</h4>
@@ -27,6 +31,7 @@ export function SiteFooter() {
                   ["Home", "/"],
                   ["Services", "/services"],
                   ["Work", "/work"],
+                  ["Resources", "/resources"],
                   ["About", "/about"],
                 ].map(([label, href]) => (
                   <Link href={href} key={href}>
@@ -56,7 +61,7 @@ export function SiteFooter() {
               © {new Date().getFullYear()} Bitstack Solutions. All rights
               reserved.
             </span>
-            <span>Built with care. Not with buzzwords. {"</>"}</span>
+            <span>Web development · Automation · Integrations</span>
           </div>
         </div>
       </footer>

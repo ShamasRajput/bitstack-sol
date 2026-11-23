@@ -3,12 +3,14 @@ import type { ReactNode } from "react";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { AnimationProvider } from "@/components/animations";
+import { OrganizationSchema } from "@/components/structured-data";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: { default: "Bitstack Solutions", template: "%s | Bitstack Solutions" },
-  description:
-    "Thoughtful websites, AI automation, and connected business systems from Bitstack Solutions.",
+  description: site.description,
   icons: { icon: "/assets/bitstack.svg" },
   openGraph: { type: "website", siteName: "Bitstack Solutions" },
 };
@@ -18,6 +20,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <OrganizationSchema />
         <a className="skip-link" href="#main-content">
           Skip to content
         </a>

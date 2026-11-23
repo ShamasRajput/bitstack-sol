@@ -9,6 +9,7 @@ import { Brand } from "./brand";
 const navigation = [
   ["Services", "/services"],
   ["Work", "/work"],
+  ["Resources", "/resources"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ] as const;
@@ -64,6 +65,7 @@ export function SiteHeader() {
               href={href}
               className={
                 pathname === href ||
+                pathname.startsWith(`${href}/`) ||
                 (href === "/services" &&
                   ["/automation", "/integrations", "/web-development"].includes(
                     pathname,

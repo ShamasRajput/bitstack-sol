@@ -62,8 +62,10 @@ export function Reveal({ children, as = "div", ...props }: RevealProps) {
     <Element
       {...props}
       data-reveal
-      initial={reduce ? false : { opacity: 0, y: 22 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={false}
+      whileInView={
+        reduce ? { opacity: 1, y: 0 } : { opacity: [0, 1], y: [22, 0] }
+      }
       viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: reduce ? 0 : 0.55, ease: [0.22, 1, 0.36, 1] }}
     >
@@ -77,8 +79,8 @@ export function PageTransition({ children }: { children: ReactNode }) {
   return (
     <motion.div
       data-reveal
-      initial={reduce ? false : { opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={false}
+      animate={reduce ? { opacity: 1, y: 0 } : { opacity: [0, 1], y: [10, 0] }}
       transition={{ duration: reduce ? 0 : 0.35 }}
     >
       {children}
